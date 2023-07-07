@@ -19,7 +19,6 @@
 - 🌊 [Building Data Lake](#-building-data-lake)
 - 🧱 [Building Data Warehouse](#-building-data-warehouse)
 - 📊 [Result](#️-result)
-- 📂 [Files](#-files)
 <!--te-->
 
  <br />
@@ -33,7 +32,7 @@ Many businesses are using multiple systems and data is distributed across multip
 The data was obtained from Kaggle for experimentation. It was divided into three different sources:
 
 <p align="center">
-<img src="./img/DataSources.png" width=70% height=70%>
+<img src="./img/DataSources.png" width=60% height=60%>
 
 <p align="center">
     Data Sources
@@ -61,7 +60,7 @@ The data was obtained from Kaggle for experimentation. It was divided into three
 </p>
 
 - Step 1: Identify data sources and file formats for each source.
-- Step 2: Extract data into the `rawdata` zone using a Python script; perform dynamic ELT processes into the "curated" zone to store and upload necessary data for analysis to Azure SQL Server.
+- Step 2: Extract data into the `rawdata` zone using a Python script; perform dynamic ELT processes into the `curated` zone to store and upload necessary data for analysis to Azure SQL Server.
 - Step 3: Perform ETL processes into the Data Warehouse using Data Factory.
 - Step 4: Visualize data using Power BI.
 
@@ -123,7 +122,6 @@ Used to extract all compressed files to prepare for importing data into the `cur
             └── Review_2018_02.json
         ├── .03/
             └── Review_2018_03.json
-│
 ├── .INTERNAL/
 │ ├── .Accounting/
     ├── .Payment/
@@ -161,4 +159,54 @@ Used to extract all compressed files to prepare for importing data into the `cur
                 └── OrderItemm_2018_03.csv
 ```
 
+## Dynamic ELT
+
+Dynamic ELT process is the process of extracting raw data and uploading it to data storage zones accurately according to the predefined structure through adjusting input parameters.
+
+<p align="center">
+<img src="./img/DataLake_Process.png" width=100% height=100%>
+
+<p align="center">
+    Dynamic ELT Process
+</p>
+
 # 🧱 Building Data Warehouse
+
+`Bus Matrix`, `Master Data`, `Transaction Data`, `ETL Mapping`, etc. are deployed to support the data warehouse construction process.
+
+## Data Warehouse model
+
+The diagram below illustrates the fundamental conceptual diagram of the proposed data warehouse in Star format.
+
+<p align="center">
+<img src="./img/DataWarehouse_StarSchema.png" width=70% height=70%>
+
+<p align="center">
+    Data Warehouse Star Schema
+</p>
+
+## ETL process
+
+<p align="center">
+<img src="./img/ETL_Pipeline.png" width=100% height=100%>
+
+<p align="center">
+    ETL Pipeline
+</p>
+
+Based on the pipeline shown above, it is divided into 2 phases:
+
+- Phase 1: Load data from Azure SQL Server --> Dimension Tables
+- Phase 2: Load data from Azure SQL Server --> Fact Table
+
+# 📊 Result
+
+<p align="center">
+<img src="./img/Dashboard.png" width=80% height=80%>
+
+<p align="center">
+    Sales Performance Dashboard
+</p>
+---
+
+<p>&copy; 2023 BoKho</p>

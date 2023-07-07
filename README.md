@@ -1,4 +1,4 @@
-# [Xây Dựng Giải Pháp Business Intelligence Trên Nền Tảng Đám Mây Microsoft Azure Kết Hợp ELT Động](https://github.com/trannhatnguyen2/BI_Cloud_KienTap)
+# [Building a Business Intelligence Solution on the Microsoft Azure Cloud Platform with Dynamic ELT Integration](https://github.com/trannhatnguyen2/BI_Cloud_KienTap)
 
 ## Member of group
 

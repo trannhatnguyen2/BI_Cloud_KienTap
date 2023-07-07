@@ -1,4 +1,4 @@
-# [Xây Dựng Giải Pháp Business Intelligence Trên Nền Tảng Đám Mây Microsoft Azure Kết Hợp ELT Động](https://github.com/trannhatnguyen2/K20406C_BoKho)
+# [Xây Dựng Giải Pháp Business Intelligence Trên Nền Tảng Đám Mây Microsoft Azure Kết Hợp ELT Động](https://github.com/trannhatnguyen2/BI_Cloud_KienTap)
 
 ## Member of group
 
@@ -26,53 +26,53 @@
 
 # 🛠️ Requirements
 
-Các doanh nghiệp đang sử dụng nhiều hệ thống khác nhau và dữ liệu được phân tán ở nhiều nguồn và được định dạng ở các loại tệp khác nhau. Điều này dẫn đến việc nhập và lưu trữ dữ liệu gặp khó khăn, vì thế nếu gặp sai lệch có thể dẫn đến nhiều hậu quả xấu như mất tính nhất quán, tạo ra chi phí không cần thiết và ảnh hưởng đến quá trình ra quyết định của doanh nghiệp.
+Many businesses are using multiple systems and data is distributed across multiple sources and formatted in different file types. This leads to difficulties in importing and storing data, and if there are discrepancies, it can lead to many negative consequences such as loss of consistency, unnecessary costs, and impact on the business decision-making process.
 
 # 🧙‍♂️ Data Source
 
-Dữ liệu được lấy từ Kaggle để thực nghiệm. Chia làm 3 nguồn khác nhau:
+The data was obtained from Kaggle for experimentation. It was divided into three different sources:
 
 <p align="center">
-<img src="./img/datasource.png" width=80% height=80%>
+<img src="./img/DataSources.png" width=70% height=70%>
 
 <p align="center">
     Data Sources
 </p>
 
-1. `Databases`: ghi nhận hoạt động bán hàng trên sàn thương mại điện tử tại Brazil về các đơn hàng
+1. `Databases`: recording sales activities on an e-commerce platform in Brazil regarding orders.
 
 <p align="center">
-<img src="./img/datasource.png" width=80% height=80%>
+<img src="./img/ERD_model.png" width=75% height=75%>
 
 <p align="center">
     ERD model
 </p>
 
-2. `Accounting Systems`: ghi nhận và quản lý thông tin thanh toán của khách hàng về các đơn hàng
-3. `Web Services`: bình luận khách hàng về sản phẩm và dịch vụ
+2. `Accounting Systems`: recording and managing customer payment information for orders.
+3. `Web Services`: customer comments on products and services.
 
 # 🚀 Solution
 
 <p align="center">
-<img src="https://github.com/trannhatnguyen2/BI_BoKho/blob/main/img/BI_Process.png" width=100% height=100%>
+<img src="./img/BI_Process.png" width=100% height=100%>
 
 <p align="center">
     BI Solution
 </p>
 
-- Step 1: Xác định các nguồn dữ liệu và loại định dạng tệp của từng nguồn
-- Step 2: Trích xuất dữ liệu vào vùng chứa `rawdata` bằng Python Script; thực hiện quy trình ELT động vào vùng chứa `curated` với mục đích lưu trữ, đồng thời những dữ liệu cần cho mục đích phân tích được tải vào Azure SQL Server
-- Step 3: Thực hiện quy trình ETL dữ liệu vào Data Warehouse bằng Data Factory
-- Step 4: Trực quan hóa dữ liệu với Power BI
+- Step 1: Identify data sources and file formats for each source.
+- Step 2: Extract data into the `rawdata` zone using a Python script; perform dynamic ELT processes into the "curated" zone to store and upload necessary data for analysis to Azure SQL Server.
+- Step 3: Perform ETL processes into the Data Warehouse using Data Factory.
+- Step 4: Visualize data using Power BI.
 
 # 🌊 Building Data Lake
 
 ## Container
 
-Công cụ sử dụng để tạo các vùng chứa dữ liệu trên nền tảng Azure là Blob Storage
+The tool used to create data storage zones on the Azure platform is Blob Storage.
 
 <p align="center">
-<img src="https://github.com/trannhatnguyen2/BI_BoKho/blob/main/img/DataWarehouse_StarSchema.png" width=70% height=70%>
+<img src="./img/Container.png" width=60% height=60%>
 
 <p align="center">
     Containers
@@ -80,7 +80,7 @@ Công cụ sử dụng để tạo các vùng chứa dữ liệu trên nền t�
 
 ### **rawdata**
 
-Một bản sao chính xác của dữ liệu từ các nguồn và được sắp xếp theo thư mục có tổ chức
+An exact copy of the data from sources, organized in an orderly folder structure.
 
 ```bash
 ./RAWDATA
@@ -108,7 +108,7 @@ Một bản sao chính xác của dữ liệu từ các nguồn và được s�
 
 ### **staging**
 
-Được sử dụng để giải nén tất cả các tệp nén để chuẩn bị cho quá trình nhập dữ liệu vào `curated`
+Used to extract all compressed files to prepare for importing data into the `curated` zone.
 
 ### **curated**
 
@@ -116,9 +116,9 @@ Một bản sao chính xác của dữ liệu từ các nguồn và được s�
 ./CURATED
 ├── .EXTERNAL/
 │ ├── .Review/
-│ ├── .2018/
-│ ├── .01/
-│ └── Review_2018_01.json
+│ \t    ├── .2018/
+│ \t\t├── .01/
+│ \t\t\t└── Review_2018_01.json
 │ ├── .02/
 │ └── Review_2018_02.json
 │ ├── .03/

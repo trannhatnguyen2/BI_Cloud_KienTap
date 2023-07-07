@@ -82,7 +82,7 @@ Công cụ sử dụng để tạo các vùng chứa dữ liệu trên nền t�
 
 Một bản sao chính xác của dữ liệu từ các nguồn và được sắp xếp theo thư mục có tổ chức
 
-````bash
+```bash
 ./RAWDATA
 ├── .accounting_systems/ <- Accounting System Source
 │ ├── Payment_2018_01.csv
@@ -104,6 +104,7 @@ Một bản sao chính xác của dữ liệu từ các nguồn và được s�
 │ ├── Review_2018_01.zip
 │ ├── Review_2018_01.zip
 │ └── Review_2018_01.zip
+```
 
 ### **staging**
 
@@ -158,6 +159,6 @@ Một bản sao chính xác của dữ liệu từ các nguồn và được s�
 │ └── OrderItemm_2018_02.csv
 │ ├── .03/
 │ └── OrderItemm_2018_03.csv
+```
 
 # 🧱 Building Data Warehouse
-````

@@ -116,13 +116,13 @@ Used to extract all compressed files to prepare for importing data into the `cur
 ./CURATED
 ├── .EXTERNAL/
 │ ├── .Review/
-│ \t    ├── .2018/
-│ \t\t├── .01/
-│ \t\t\t└── Review_2018_01.json
-│ ├── .02/
-│ └── Review_2018_02.json
-│ ├── .03/
-│ └── Review_2018_03.json
+    ├── .2018/
+        ├── .01/
+            └── Review_2018_01.json
+        ├── .02/
+            └── Review_2018_02.json
+        ├── .03/
+            └── Review_2018_03.json
 │
 ├── .INTERNAL/
 │ ├── .Accounting/
